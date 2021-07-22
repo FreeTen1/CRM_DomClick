@@ -1,3 +1,24 @@
 {% extends 'default.html' %}
 
 {% block title %} Клиенты {% endblock title %}
+
+{% block content %}
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Имя пользователя</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Email</th>
+        </tr>
+        {% for client in clients %}
+            <tr>
+                <td>{{ client.id }}</td>
+                <td>{{ client.user.username }}</td>
+                <td>{{ client.user.first_name }}</td>
+                <td>{{ client.user.last_name }}</td>
+                <td>{{ client.user.email }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

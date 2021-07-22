@@ -1,0 +1,23 @@
+table {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid #a5a5a5;
+    border-collapse: collapse;
+}
+
+th {
+    font-weight: bold;
+    padding: 5px;
+    background: #fb99ff;
+    border: 1px solid #a5a5a5;
+}
+
+td {
+    border: 1px solid #a5a5a5;
+    padding: 5px;
+}
+
+tr:nth-child(2n+1) {
+    background: #efefef;
+}

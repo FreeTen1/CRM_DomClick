@@ -10,15 +10,18 @@
             <th>Тип</th>
             <th>Дата создания</th>
             <th>Сатус</th>
+            <th>Действия</th>
         </tr>
         {% for query in queries %}
             <tr>
                 <td>{{ query.id }}</td>
-                <td>{{ query.client.user.username }}</td>
+                <td><a href="/clients/{{ query.client.id }}">{{ query.client.name }} {{ query.client.last_name }}</a></td>
                 <td>{{ query.get_type_display }}</td>
                 <td>{{ query.query_date_creation|date:'d.m.Y H:i' }}</td>
                 <td>{{ query.get_status_display }}</td>
+                <td><a href="queries/{{ query.id }}">Редактировать</a> <a href="/queries/delete/{{ query.id }}">Удалить</a></td>
             </tr>
         {% endfor %}
     </table>
+    <button><a href="queries/add">Добавить заявку</a></button>
 {% endblock content %}

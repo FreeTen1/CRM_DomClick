@@ -9,6 +9,7 @@
             <th>Имя</th>
             <th>Фамилия</th>
             <th>Email</th>
+            <th>Действия</th>
         </tr>
         {% for client in clients %}
             <tr>
@@ -16,7 +17,9 @@
                 <td>{{ client.name }}</td>
                 <td>{{ client.last_name }}</td>
                 <td>{{ client.email }}</td>
+                <td><a href="/clients/{{ client.id }}">Редактировать</a> <a href="/clients/delete/{{ client.id }}">Удалить</a></td>
             </tr>
         {% endfor %}
     </table>
+    <button><a href="clients/add">Добавить клиента</a></button>
 {% endblock content %}

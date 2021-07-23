@@ -10,6 +10,7 @@
             <th>Фамилия</th>
             <th>Email</th>
             <th>Должность</th>
+            <th>Действия</th>
         </tr>
         {% for worker in workers %}
             <tr>
@@ -18,7 +19,9 @@
                 <td>{{ worker.last_name }}</td>
                 <td>{{ worker.email }}</td>
                 <td>{{ worker.position }}</td>
+                <td><a href="/workers/{{ worker.id }}">Редактировать</a> <a href="/workers/delete/{{ worker.id }}">Удалить</a></td>
             </tr>
         {% endfor %}
     </table>
+    <button><a href="workers/add">Добавить работника</a></button>
 {% endblock content %}

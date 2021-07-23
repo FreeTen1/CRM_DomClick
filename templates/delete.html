@@ -1,0 +1,11 @@
+{% extends 'default.html' %}
+
+{% block title %} delete news {% endblock title %}
+
+{% block content %}
+<h2>Вы действительно хотите удалить?</h2>
+<p>{{ worker.name }}</p>
+<form method="POST">
+    {% csrf_token %}
+    <input type="submit" value="подтвердить"></form>
+{% endblock content %}

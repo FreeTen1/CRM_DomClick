@@ -6,7 +6,6 @@
     <table>
         <tr>
             <th>id</th>
-            <th>Имя пользователя</th>
             <th>Имя</th>
             <th>Фамилия</th>
             <th>Email</th>
@@ -15,10 +14,9 @@
         {% for worker in workers %}
             <tr>
                 <td>{{ worker.id }}</td>
-                <td>{{ worker.user.username }}</td>
-                <td>{{ worker.user.first_name }}</td>
-                <td>{{ worker.user.last_name }}</td>
-                <td>{{ worker.user.email }}</td>
+                <td>{{ worker.name }}</td>
+                <td>{{ worker.last_name }}</td>
+                <td>{{ worker.email }}</td>
                 <td>{{ worker.position }}</td>
             </tr>
         {% endfor %}

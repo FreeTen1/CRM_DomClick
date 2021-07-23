@@ -1,22 +1,25 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 
 class Client(models.Model):
     """Клиенты."""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255, default='clientname')
+    last_name = models.CharField(max_length=255, default='clientlastname')
+    email = models.EmailField(null=True)
 
     def __str__(self):
-        return f'Клиент - {self.user.username}'
+        return f'Клиент - {self.name} {self.last_name}'
 
 
 class Worker(models.Model):
     """Работники."""
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    position = models.TextField(null=False, blank=False)
+    name = models.CharField(max_length=255, default='workername')
+    last_name = models.CharField(max_length=255, default='workerlastname')
+    email = models.EmailField(null=True)
+    position = models.TextField()
 
     def __str__(self):
-        return f'Работник - {self.user.username}, должность - {self.position}'
+        return f'Работник - {self.name} {self.last_name}, должность - {self.position}'
 
 
 class Query(models.Model):
@@ -50,4 +53,4 @@ class Query(models.Model):
     status = models.CharField(max_length=2, choices=FIELD_STATUS)
 
     def __str__(self):
-        return f'Заявка №{self.id}, клиент - {self.client.user.username}'
+        return f'Заявка №{self.id}, клиент - {self.client}'
